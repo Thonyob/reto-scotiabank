@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AlumnoResponse {
 
-    private String id;
+    private Long id;
     private String nombre;
     private String apellido;
     private String estado;

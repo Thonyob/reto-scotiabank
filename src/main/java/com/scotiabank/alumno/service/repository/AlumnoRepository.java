@@ -7,6 +7,6 @@ import reactor.core.publisher.Flux;
 
 
 @Repository
-public interface AlumnoRepository extends ReactiveCrudRepository<Alumno,String> {
+public interface AlumnoRepository extends ReactiveCrudRepository<Alumno,Long> {
     Flux<Alumno> findByEstado(String estado);
 }

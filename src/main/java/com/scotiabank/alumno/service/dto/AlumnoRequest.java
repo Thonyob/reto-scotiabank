@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AlumnoRequest {
 
+    private @NotNull(message = "El id no puede ser vacio")
+    Long id;
 
     private @NotBlank(message = "El nombre es obligatorio")
     @Pattern(regexp = "[a-zA-Z]+", message = "Nombre solo puede contener letras")
