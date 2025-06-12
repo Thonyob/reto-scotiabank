@@ -20,25 +20,25 @@ public class AlumnoServiceImpl implements AlumnoService {
     }
 
     public Mono<Void> guardarAlumno(AlumnoRequest alumnoRequest) {
-         Alumno nuevo = Alumno.builder()
-                                .nombre(alumnoRequest.getNombre())
-                                .apellido(alumnoRequest.getApellido())
-                                .estado(alumnoRequest.getEstado())
-                                .edad(alumnoRequest.getEdad())
-                                .build();
 
-        return  alumnoRepository.save(nuevo).then();
-                    }
-
-        public Flux<AlumnoResponse> listarAlumnosActivos () {
-            return alumnoRepository.findByEstado("activo")
-                    .map(alumno -> AlumnoResponse.builder()
-                            .id(alumno.getId())
-                            .nombre(alumno.getNombre())
-                            .apellido(alumno.getApellido())
-                            .estado(alumno.getEstado())
-                            .edad(alumno.getEdad())
-                            .build()
-                    );
-        }
+        return alumnoRepository.save(Alumno.builder()
+                        .nombre(alumnoRequest.getNombre())
+                        .apellido(alumnoRequest.getApellido())
+                        .estado(alumnoRequest.getEstado())
+                        .edad(alumnoRequest.getEdad())
+                        .build())
+                .then();
     }
+
+    public Flux<AlumnoResponse> listarAlumnosActivos() {
+        return alumnoRepository.findByEstado("activo")
+                .map(alumno -> AlumnoResponse.builder()
+                        .id(alumno.getId())
+                        .nombre(alumno.getNombre())
+                        .apellido(alumno.getApellido())
+                        .estado(alumno.getEstado())
+                        .edad(alumno.getEdad())
+                        .build()
+                );
+    }
+}
