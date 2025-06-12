@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: alumno-service
+
+  r2dbc:
+    url: r2dbc:h2:mem:///alumnosdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+
+  sql:
+    init:
+      mode: always
+
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+    io.r2dbc: DEBUG
+
+server:
+  port: 8282
