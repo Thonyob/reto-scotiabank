@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AlumnoRequest {
 
+
     private @NotNull(message = "El id no puede ser vacio")
     Long id;
 

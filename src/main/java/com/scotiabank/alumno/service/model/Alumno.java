@@ -15,6 +15,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table(name = "alumno")
 public class Alumno {
 
+
     @Id
     private Long id;
     private String nombre;
