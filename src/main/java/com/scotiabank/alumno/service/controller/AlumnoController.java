@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/alumnos")
+@RequestMapping("/alumno")
 public class AlumnoController {
 
     private final AlumnoService alumnoService;
@@ -18,7 +18,7 @@ public class AlumnoController {
             this.alumnoService=alumnoService;
     }
 
-    @PostMapping({"guardarAlumnos"})
+    @PostMapping({"guardarAlumno"})
     public Mono<Void> registrarAlumno(@Valid @RequestBody AlumnoRequest alumnoRequest){
         return alumnoService.guardarAlumno(alumnoRequest);
     }
